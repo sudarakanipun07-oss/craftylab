@@ -1,0 +1,559 @@
+/* --- CSS RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    /* 🟢 LIGHT MODE BASE: සුදු පාට පසුබිම */
+    background-color: #ffffff;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+    min-height: 100vh;
+    background-color: transparent;
+    /* 🟢 Smooth transition for dark mode */
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.body-index {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    z-index: 2;
+    flex-grow: 1;
+}
+
+/* 1. Sidebar Change: Remove border, Add shadow */
+.sidebar {
+    width: 200px;
+    background-color: darkslateblue;
+    padding: 20px 0;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    transition: background-color 0.5s ease;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: 0 20px 25px;
+    transition: color 0.5s ease;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. Nav Item Change: Rounded corners and modern spacing */
+.nav-item {
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #f0f0f0;
+    font-size: 1em;
+    margin: 10px 20px;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s, color 0.3s;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-weight: 500;
+}
+
+/* 3. Active/Hover Change: Professional Active State and Hover Effect */
+.nav-item.nav-active {
+    background-color: #ffffff;
+    color: darkslateblue;
+    font-weight: 700;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+.nav-item:hover:not(.nav-active) {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+/* 🟢 මෙතන තමයි Admin සහ Logout Style එක දාලා තියෙන්නේ */
+.admin-link {
+    color: #ffcc00 !important;
+    font-weight: 600 !important;
+}
+
+.user-greeting {
+    padding: 5px 20px;
+    color: #cbd5e0;
+    font-size: 0.8em;
+    opacity: 0.8;
+}
+
+.content {
+    flex-grow: 1;
+    margin-left: 200px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* 🟢 Dark Mode Toggle Button Positioning */
+#theme-toggle {
+    position: fixed; 
+    top: 10px;        
+    right: 8px;       
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 9999; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px; 
+    background-color: #ffffff; 
+    border: 2px solid #4B338A; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #4B338A; 
+    transition: all 0.5s ease; 
+}
+
+body.body-index .content {
+    padding: 30px 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: auto;
+    flex-grow: 1;
+}
+
+/* 🟢 HERO IMAGE FIX */
+.hero-section {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('hero.jpg');
+    background-size: cover;
+    background-position: center center;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 40px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 0;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.5s ease;
+}
+
+.hero-title {
+    font-size: 3em;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.1em;
+    color: #e0e0e0;
+}
+
+.random-fact-section {
+    background-color: #f0f0f0;
+    padding: 15px 30px;
+    border-radius: 8px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-left: 5px solid darkslateblue;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.fact-text {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #555555;
+    margin: 0;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out, color 0.5s ease;
+}
+
+.fact-text.fade-out {
+    opacity: 0;
+}
+
+.info-sections {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    margin-top: 80px;
+    flex-grow: 1;
+    align-items: stretch;
+}
+
+.about-section, .contact-section {
+    width: calc(50% - 15px);
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-section h2, .contact-section h2 {
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: darkslateblue;
+    transition: color 0.5s ease;
+}
+
+.content-box {
+    background-color: darkslateblue;
+    padding: 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    min-height: 100px;
+    flex-grow: 1;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.content-box p {
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 10px;
+    transition: color 0.5s ease;
+}
+
+.page-header {
+    background-color: darkslateblue;
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.page-header h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 1.1em;
+    color: #e0e0e0;
+}
+
+.tutorial-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    position: relative;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 0 30px;
+}
+
+.cards-grid {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    gap: 25px;
+    padding-bottom: 10px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.cards-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    flex-shrink: 0;
+    width: 250px;
+    scroll-snap-align: start;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 5px 18px rgba(0,0,0,0.1);
+    transition: transform 0.3s, background-color 0.5s ease, box-shadow 0.5s ease;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* 🟢 සංශෝධිත Card Content (Center Aligned) */
+.card-content {
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 10px;
+}
+
+/* 🟢 සංශෝධිත Title (Center Aligned with Fixed Height) */
+.title {
+    font-size: 19px;
+    font-weight: 700;
+    color: darkslateblue;
+    margin-bottom: 0;
+    line-height: 1.3;
+    display: block;
+    text-align: center;
+    min-height: 50px;
+    transition: color 0.5s ease;
+    text-decoration: none;
+}
+
+/* 🟢 සංශෝධිත Description (Center Aligned) */
+.text {
+    color: #333333;
+    font-size: 14px;
+    text-align: center;
+    flex-grow: 1;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    overflow: hidden;
+    transition: color 0.5s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: darkslateblue;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+    transition: opacity 0.2s, background-color 0.5s ease;
+}
+
+.nav-arrow:hover {
+    background-color: #5d5d81;
+    opacity: 1;
+}
+
+.left-arrow { left: 10px; }
+.right-arrow { right: 10px; }
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 40px;
+}
+
+.pagination-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.page-button {
+    background-color: #f0f0f0;
+    color: darkslateblue;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s, border-color 0.5s ease;
+}
+
+.page-button.active {
+    background-color: darkslateblue;
+    color: white;
+    border-color: darkslateblue;
+}
+
+.copyright-footer {
+    padding: 10px 0 0;
+    font-size: 0.9em;
+    color: #ffffff;
+    background-color: darkslateblue;
+    text-align: center;
+    margin-left: -30px;
+    margin-right: -30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.content > .copyright-footer {
+    margin-top: auto;
+    padding: 15px 0;
+    background-color: transparent;
+    color: #333333;
+}
+
+/* 🟢 සංශෝධිත Difficulty Rating (Pinned to bottom) */
+.difficulty-rating {
+    margin-top: auto;
+    font-size: 0.9em;
+    font-weight: 600;
+    padding: 5px 0;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+    color: #555555;
+    text-align: center;
+    transition: color 0.5s ease;
+}
+
+.difficulty-rating.easy { color: #28a745; }
+.difficulty-rating.medium { color: #ffc107; }
+.difficulty-rating.hard { color: #dc3545; }
+
+.filter-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: darkslateblue;
+    margin-right: 10px;
+}
+
+.filter-group select, .search-group input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-group button {
+    padding: 8px 12px;
+    background-color: darkslateblue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* 🌙 DARK MODE OVERRIDES */
+.dark-mode { background-color: #1e1e1e !important; color: #e0e0e0; }
+.dark-mode html { background-color: #1e1e1e; }
+.dark-mode .sidebar { background-color: darkslateblue; }
+.dark-mode .nav-item.nav-active { background-color: #ffffff; color: darkslateblue; }
+.dark-mode body.body-index .content, .dark-mode .content { background-color: #1e1e1e !important; }
+.dark-mode .random-fact-section { background-color: #333333; border-color: #555; }
+.dark-mode .fact-text { color: #ffffff !important; }
+.dark-mode .filter-section { background-color: #333333; }
+.dark-mode .tutorial-container { background-color: #2c2c2c; }
+.dark-mode .card { background: #3a3a3a; box-shadow: 0px 5px 18px rgba(0,0,0,0.5); }
+.dark-mode .title { color: #ffffff !important; }
+.dark-mode .text { color: #bbbbbb; }
+.dark-mode .difficulty-rating { border-top-color: rgba(255,255,255,0.1); color: #aaa; }
+.dark-mode .page-button { background-color: #444; color: #fff; border-color: #555; }
+.dark-mode .page-button.active { background-color: darkslateblue; }
+
+/* 1. මුලින්ම සාමාන්‍ය වර්ණ (Light Mode සඳහා) */
+:root {
+    --text-main: #333333;
+    --box-bg: rgba(0, 0, 0, 0.05);
+    --input-bg: #ffffff;
+    --border-color: #cccccc;
+}
+
+/* 2. Dark Mode එකට අදාළ වර්ණ (Variable Changes) */
+body.dark-mode {
+    --text-main: #ffffff;
+    --box-bg: rgba(255, 255, 255, 0.1); 
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 3. වර්ණ Content Box සහ Form එකට සම්බන්ධ කිරීම */
+.content-box {
+    background: var(--box-bg) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border-color);
+}
+
+.about-text, .contact-info-list span, .contact-info-list li {
+    color: var(--text-main) !important;
+}
+
+.feedback-form input, .feedback-form textarea {
+    background: var(--input-bg) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.feedback-form input::placeholder, 
+.feedback-form textarea::placeholder {
+    color: var(--text-main);
+    opacity: 0.6;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    .sidebar { display: none; }
+    .content { margin-left: 0; padding: 20px; }
+    .card { width: 90%; }
+}
